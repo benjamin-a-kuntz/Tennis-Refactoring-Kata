@@ -1,11 +1,22 @@
-  
-using System;
+
 using NUnit.Framework;
+using System;
 
 namespace Tennis
 {
-	public class TennisGameTest
+    public class TennisGameTest
 	{
+		/// <summary>
+		/// List of test cases to be executed within test method CheckTennisGame
+		/// Followed by:
+		/// CheckTennisGame test method
+		/// Takes both players raw score values and determines the intended score or winner.
+		/// Then compares the intended value with the result of TennisGame.GetScore()
+		/// Resulting score/win declaration should match.
+		/// </summary>
+		/// <param name="player1Score"></param>
+		/// <param name="player2Score"></param>
+		/// <param name="expectedScore"></param>
 		[TestCase( 0,  0, "Love-All")]
 		[TestCase( 1,  1, "Fifteen-All")]
 		[TestCase( 2,  2, "Thirty-All")]
@@ -39,6 +50,7 @@ namespace Tennis
 		[TestCase( 4,  6, "Win for player2")]
 		[TestCase(16, 14, "Win for player1")]
 		[TestCase(14, 16, "Win for player2")]
+
 		public void CheckTennisGame(int player1Score, int player2Score, string expectedScore)
 		{
 			var game = new TennisGame("player1", "player2");
@@ -54,6 +66,9 @@ namespace Tennis
 			Assert.AreEqual(expectedScore, game.GetScore());
 		}
 
+		/// <summary>
+		/// Test method that iteratively checks expected scores vs TennisGame.GetScore() results
+		/// </summary>
 		[Test]
 		public void CheckRealisticGame()
 		{

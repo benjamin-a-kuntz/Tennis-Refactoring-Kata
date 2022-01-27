@@ -1,18 +1,33 @@
 namespace Tennis
 {
+    /// <summary>
+    /// Primary class - contains all variables and functions necessary for program execution.
+    /// </summary>
     class TennisGame : ITennisGame
     {
+        //Variable Declarations
         private int m_score1 = 0;
         private int m_score2 = 0;
         private string player1Name;
         private string player2Name;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="player1Name">Name of player 1</param>
+        /// <param name="player2Name">Name of player 2</param>
         public TennisGame(string player1Name, string player2Name)
         {
             this.player1Name = player1Name;
             this.player2Name = player2Name;
         }
 
+        /// <summary>
+        /// Simple logic for score increment.  
+        /// Takes playername and increments the score of the relevant player. 
+        /// I.E. if playerName = "player1", then m_score1 is incremented
+        /// </summary>
+        /// <param name="playerName"></param>
         public void WonPoint(string playerName)
         {
             if (playerName == "player1")
@@ -21,6 +36,10 @@ namespace Tennis
                 m_score2 += 1;
         }
 
+        /// <summary>
+        /// Logic for score tabulation and translation into tennis jargan.
+        /// </summary>
+        /// <returns>string score value</returns>
         public string GetScore()
         {
             string score = "";
