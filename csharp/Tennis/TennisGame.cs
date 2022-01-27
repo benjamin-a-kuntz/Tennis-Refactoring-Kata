@@ -96,6 +96,30 @@ namespace Tennis
             }
             return score;
         }
+
+        public string translateScore(int score)
+        {
+            string result;
+
+            switch (score)
+            {
+                case 0:
+                    result = "Love";
+                    break;
+                case 1:
+                    result = "Fifteen";
+                    break;
+                case 2:
+                    result = "Thirty";
+                    break;
+                case 3:
+                    result = "Forty";
+                    break;
+                default:
+                    throw new System.Exception("The translateScore function was passed an invalid value: " + score.ToString());
+            }
+            return result;
+        }
     }
 }
 
