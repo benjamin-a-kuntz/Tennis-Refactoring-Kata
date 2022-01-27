@@ -8,7 +8,7 @@ namespace Tennis
     class TennisGame : ITennisGame
     {
         //Variable Declarations
-        private readonly TennisPlayer player1, player2;
+        private readonly ITennisPlayer player1, player2;
 
         /// <summary>
         /// Constructor
