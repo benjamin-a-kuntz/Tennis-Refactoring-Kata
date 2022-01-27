@@ -1,3 +1,5 @@
+using System;
+
 namespace Tennis
 {
     /// <summary>
@@ -95,6 +97,29 @@ namespace Tennis
                 }
             }
             return score;
+        }
+
+        public string calculateAdvantageOrWin(int player1Score, int player2Score)
+        {
+            int scoreDifference = Math.Abs(player1Score - player2Score);
+            string result;
+
+            switch (scoreDifference)
+            {
+                case 1:
+                    result = "Advantage ";
+                    break;
+                default:
+                    result = "Win for ";
+                    break;
+            }
+
+            if (player1Score > player2Score)
+                result += "player1";
+            else
+                result += "player2";
+
+            return result;
         }
 
         public string translateScore(int score)
